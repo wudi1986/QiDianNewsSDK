@@ -1,0 +1,7 @@
+<resources>
+
+
+    <dimen name="font4">14sp</dimen>
+    <dimen name="font5">12sp</dimen>
+    <dimen name="new_font2">17sp</dimen>
+</resources>
