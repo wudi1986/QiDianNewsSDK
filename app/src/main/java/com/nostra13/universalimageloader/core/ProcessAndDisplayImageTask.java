@@ -18,7 +18,7 @@ package com.nostra13.universalimageloader.core;
 import android.graphics.Bitmap;
 import android.os.Handler;
 
-import com.news.yazhidao.widget.TextViewExtend;
+import com.news.qidian.widget.TextViewExtend;
 import com.nostra13.universalimageloader.core.assist.LoadedFrom;
 import com.nostra13.universalimageloader.core.process.BitmapProcessor;
 import com.nostra13.universalimageloader.utils.L;

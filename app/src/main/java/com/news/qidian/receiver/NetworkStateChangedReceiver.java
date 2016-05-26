@@ -16,7 +16,6 @@ import com.news.qidian.net.StringCallback;
 import com.news.qidian.net.request.CreateDiggerAlbumRequest;
 import com.news.qidian.net.request.DigNewsRequest;
 import com.news.qidian.net.request.FetchAlbumSubItemsRequest;
-import com.news.qidian.pages.AlbumListAty;
 import com.news.qidian.utils.DeviceInfoUtil;
 import com.news.qidian.utils.Logger;
 import com.news.qidian.utils.TextUtil;
@@ -101,9 +100,9 @@ public class NetworkStateChangedReceiver extends BroadcastReceiver {
 
                         if (index == subItems.size()-1){
                             //通知AlbumListAty 刷新数据
-                            Intent intent = new Intent(AlbumListAty.ACTION_REFRESH_DATA);
-                            pContext.getApplicationContext().sendBroadcast(intent);
-                            refreshAlbumSubItems(pContext,subItems);
+//                            Intent intent = new Intent(AlbumListAty.ACTION_REFRESH_DATA);
+//                            pContext.getApplicationContext().sendBroadcast(intent);
+//                            refreshAlbumSubItems(pContext,subItems);
                             Logger.e("jigang","---通知刷新数据了");
                         }
                         Logger.e("jigang", "---重新向服务器请求挖掘成功!" + result);

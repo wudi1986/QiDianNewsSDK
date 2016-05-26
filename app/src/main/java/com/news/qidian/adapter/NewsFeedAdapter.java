@@ -25,7 +25,7 @@ import com.news.qidian.database.ChannelItemDao;
 import com.news.qidian.database.NewsFeedDao;
 import com.news.qidian.entity.ChannelItem;
 import com.news.qidian.entity.NewsFeed;
-//import com.news.qidian.pages.NewsDetailAty2;
+import com.news.qidian.pages.NewsDetailAty2;
 import com.news.qidian.pages.NewsFeedFgt;
 import com.news.qidian.utils.DensityUtil;
 import com.news.qidian.utils.DeviceInfoUtil;
@@ -363,20 +363,20 @@ public class NewsFeedAdapter extends MultiItemCommonAdapter<NewsFeed> {
                     return;
                 }
                 firstClick = System.currentTimeMillis();
-//                Intent intent = new Intent(mContext, NewsDetailAty2.class);
-//                intent.putExtra(NewsFeedFgt.KEY_NEWS_FEED, feed);
+                Intent intent = new Intent(mContext, NewsDetailAty2.class);
+                intent.putExtra(NewsFeedFgt.KEY_NEWS_FEED, feed);
 
-//                ArrayList<String> imageList = feed.getImgList();
-//                if (imageList != null && imageList.size() != 0) {
-//                    intent.putExtra(NewsFeedFgt.KEY_NEWS_IMAGE, imageList.get(0));
-//                }
-//
-//
-//                if (mNewsFeedFgt != null) {
-//                    mNewsFeedFgt.startActivityForResult(intent, REQUEST_CODE);
-//                } else {
-//                    ((Activity) mContext).startActivityForResult(intent, REQUEST_CODE);
-//                }
+                ArrayList<String> imageList = feed.getImgList();
+                if (imageList != null && imageList.size() != 0) {
+                    intent.putExtra(NewsFeedFgt.KEY_NEWS_IMAGE, imageList.get(0));
+                }
+
+
+                if (mNewsFeedFgt != null) {
+                    mNewsFeedFgt.startActivityForResult(intent, REQUEST_CODE);
+                } else {
+                    ((Activity) mContext).startActivityForResult(intent, REQUEST_CODE);
+                }
                 //推送人员使用
                 if (DeviceInfoUtil.getUUID().equals("3b7976c8c1b8cd372a59b05bfa9ac5b3")) {
                     File file = FileUtils.getSavePushInfoPath(mContext, "push.txt");

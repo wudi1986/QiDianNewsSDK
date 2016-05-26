@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.news.qidian.utils.CrashHandler;
 
 /**
@@ -20,13 +21,13 @@ public class QiDianApplication extends Application {
         mContext=this;
         mInstance = this;
         //在这里为应用设置异常处理程序，然后我们的程序才能捕获未处理的异常
-        CrashHandler crashHandler = CrashHandler.getInstance();
-        crashHandler.init(this);
+//        CrashHandler crashHandler = CrashHandler.getInstance();
+//        crashHandler.init(this);
 //        PushAgent mPushAgent = PushAgent.getInstance(this);
 //        mPushAgent.setDebugMode(false);
 //        mPushAgent.setNotificationClickHandler(notificationClickHandler);
-//        //init fresco
-//        Fresco.initialize(this);
+        //init fresco
+        Fresco.initialize(this);
 //        String device_token = UmengRegistrar.getRegistrationId(this);
 //        Logger.e("device_token","token="+device_token);
         super.onCreate();

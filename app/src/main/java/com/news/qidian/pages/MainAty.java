@@ -15,6 +15,8 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.news.qidian.R;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -67,7 +69,8 @@ public class MainAty extends BaseActivity implements View.OnClickListener, NewsF
     //baidu Map
 //    public LocationClient mLocationClient = null;
 //    public BDLocationListener myListener = new MyLocationListener();
-    private SimpleDraweeView mUserCenter;
+//    private SimpleDraweeView mUserCenter;
+    private TextView mDetailLeftBack;
 
     /**
      * 自定义的PopWindow
@@ -85,14 +88,14 @@ public class MainAty extends BaseActivity implements View.OnClickListener, NewsF
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (ACTION_USER_LOGIN.equals(intent.getAction())) {
-                String url = intent.getStringExtra(KEY_INTENT_USER_URL);
-                if (!TextUtil.isEmptyString(url)) {
-                    mUserCenter.setImageURI(Uri.parse(url));
-                }
-            } else if (ACTION_USER_LOGOUT.equals(intent.getAction())) {
-                mUserCenter.setImageURI(null);
-            }
+//            if (ACTION_USER_LOGIN.equals(intent.getAction())) {
+//                String url = intent.getStringExtra(KEY_INTENT_USER_URL);
+//                if (!TextUtil.isEmptyString(url)) {
+//                    mUserCenter.setImageURI(Uri.parse(url));
+//                }
+//            } else if (ACTION_USER_LOGOUT.equals(intent.getAction())) {
+//                mUserCenter.setImageURI(null);
+//            }
         }
     }
 
@@ -116,8 +119,8 @@ public class MainAty extends BaseActivity implements View.OnClickListener, NewsF
         mViewPager = (ViewPager) findViewById(R.id.mViewPager);
         mViewPager.setOverScrollMode(ViewPager.OVER_SCROLL_NEVER);
 
-        mUserCenter = (SimpleDraweeView) findViewById(R.id.mUserCenter);
-        mUserCenter.setOnClickListener(this);
+        mDetailLeftBack = (TextView) findViewById(R.id.mDetailLeftBack);
+        mDetailLeftBack.setOnClickListener(this);
         mViewPager.setOffscreenPageLimit(2);
         mChannelExpand = (ImageView) findViewById(R.id.mChannelExpand);
         mChannelExpand.setOnClickListener(this);
@@ -153,12 +156,12 @@ public class MainAty extends BaseActivity implements View.OnClickListener, NewsF
             }
         });
         /**更新右下角用户登录图标*/
-        User user = SharedPreManager.getUser(this);
-        if (user != null) {
-            if (!TextUtil.isEmptyString(user.getUserIcon())) {
-                mUserCenter.setImageURI(Uri.parse(user.getUserIcon()));
-            }
-        }
+//        User user = SharedPreManager.getUser(this);
+//        if (user != null) {
+//            if (!TextUtil.isEmptyString(user.getUserIcon())) {
+//                mUserCenter.setImageURI(Uri.parse(user.getUserIcon()));
+//            }
+//        }
         /**注册用户登录广播*/
         mReceiver = new UserLoginReceiver();
         IntentFilter filter = new IntentFilter(ACTION_USER_LOGIN);
@@ -228,6 +231,9 @@ public class MainAty extends BaseActivity implements View.OnClickListener, NewsF
 //                }
 //                MobclickAgent.onEvent(this, "qidian_user_open_user_center");
 //                break;
+            case R.id.mDetailLeftBack:
+                MainAty.this.finish();
+                break;
         }
     }
 

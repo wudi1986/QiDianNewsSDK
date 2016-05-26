@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
 import com.news.qidian.R;
-import com.news.qidian.widget.swipebackactivity.SwipeBackActivityHelper;
+//import com.news.qidian.widget.swipebackactivity.SwipeBackActivityHelper;
 
 
 
@@ -16,7 +16,7 @@ import com.news.qidian.widget.swipebackactivity.SwipeBackActivityHelper;
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
-    protected SwipeBackActivityHelper mHelper;
+//    protected SwipeBackActivityHelper mHelper;
 
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.Theme_AppCompat_NoActionBar);
@@ -34,8 +34,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 //              getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
             }
         }
-        mHelper = new SwipeBackActivityHelper(this);
-        mHelper.onActivityCreate();
+//        mHelper = new SwipeBackActivityHelper(this);
+//        mHelper.onActivityCreate();
         setContentView();
         initializeViews();
         loadData();

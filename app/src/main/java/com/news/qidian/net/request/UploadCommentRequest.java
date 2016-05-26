@@ -10,7 +10,7 @@ import com.news.qidian.net.JsonCallback;
 import com.news.qidian.net.MyAppException;
 import com.news.qidian.net.NetworkRequest;
 import com.news.qidian.utils.Logger;
-import com.news.qidian.utils.manager.AliYunOssManager;
+//import com.news.qidian.utils.manager.AliYunOssManager;
 import com.news.qidian.utils.manager.SharedPreManager;
 
 import org.apache.http.NameValuePair;
@@ -51,9 +51,9 @@ public class UploadCommentRequest {
         final NetworkRequest request=new NetworkRequest(HttpConstant.URL_GET_NEWS_CONTENT, NetworkRequest.RequestMethod.POST);
         List<NameValuePair> pairs=new ArrayList<>();
         //如果是语音评论，则须上传到阿里云的OSS
-        if(SPEECH_PARAGRAPH.equals(type)||SPEECH_DOC.equals(type)){
-           comment= AliYunOssManager.getInstance(mContext).uploadSpeechFile(comment);
-        }
+//        if(SPEECH_PARAGRAPH.equals(type)||SPEECH_DOC.equals(type)){
+//           comment= AliYunOssManager.getInstance(mContext).uploadSpeechFile(comment);
+//        }
         Logger.i("jigang","-+++--"+comment+"+++"+speechDuration);
         //此处默认用户是已经登录过的
         User user = SharedPreManager.getUser(mContext);
